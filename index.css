@@ -2,10 +2,13 @@
 
 .rabbit .cover {width: 100%; height: 100vh; background: #00000096;}
 .rabbit .cover .tit {padding:80px 0 0; text-align: center; font-size:180px; color:#a4ef00; font-family: 'Rammetto One', cursive;}
-.rabbit .cover .gameWrap {margin:50px 0; width: 100%; height: 280px; background: #000; position: relative;}
-.rabbit .cover .gameWrap .key{display: flex; color:#ffff00; position:absolute;top:50px;left: 50%;transform: translateX(-50%);}
-.rabbit .cover .gameWrap .key li {text-align: center; margin:0 2px 0; width: 50px; height: 50px; line-height: 50px; background: #111111; border-radius: 5px;}
-.rabbit .cover .gameWrap .key li.now {border:2px solid #ffff00; }
+.rabbit .cover .gameWrap {margin:50px 0; width: 100%; height: 280px; background: #000000e0; position: relative;}
+.rabbit .cover .gameWrap .center {display: none; position:absolute;top:50%;left: 50%;transform: translate(-50%,-50%);}
+.rabbit .cover .gameWrap .before {display: block;}
+.rabbit .cover .gameWrap .before .startBtn {color:#3241e0; font-size:80px; font-family: 'Rammetto One', cursive; cursor: pointer;}
+.rabbit .cover .gameWrap .key {display: flex; color:#ffff00; }
+.rabbit .cover .gameWrap .key li {text-align: center; margin:0 4px 0; width: 50px; height: 50px; line-height: 50px; background: #111111; border-radius: 5px;}
+.rabbit .cover .gameWrap .key li.now {border:2px solid #ffff00; position: relative; top:-20px;}
 .rabbit .cover .gameWrap .res{color:#5665F8;}
 
 .rabbit .cover .foot {line-height:1.5; font-size: 80px; color:#ff52d2; text-align: center; font-family: 'Rammetto One', cursive;}
