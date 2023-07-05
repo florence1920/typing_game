@@ -4,12 +4,36 @@
 .rabbit .cover .tit {padding:80px 0 0; text-align: center; font-size:180px; color:#a4ef00; font-family: 'Rammetto One', cursive;}
 .rabbit .cover .gameWrap {margin:50px 0; width: 100%; height: 280px; background: #000000e0; position: relative;}
 .rabbit .cover .gameWrap .center {display: none; position:absolute;top:50%;left: 50%;transform: translate(-50%,-50%);}
+.rabbit .cover .gameWrap .center .clear {color: #fff;}
+.rabbit .cover .gameWrap .center .progress {width: 600px;height: 20px; background:gray; position: relative;}
+.rabbit .cover .gameWrap .center .progress-inner {width:100%; height:100%; background:green; position:absolute;}
 .rabbit .cover .gameWrap .before {display: block;}
 .rabbit .cover .gameWrap .before .startBtn {color:#3241e0; font-size:80px; font-family: 'Rammetto One', cursive; cursor: pointer;}
-.rabbit .cover .gameWrap .key {display: flex; color:#ffff00; }
-.rabbit .cover .gameWrap .key li {text-align: center; margin:0 4px 0; width: 50px; height: 50px; line-height: 50px; background: #111111; border-radius: 5px;}
+.rabbit .cover .gameWrap .key {display: flex; color:#ffff00; font-size:20px; font-weight: bold;}
+.rabbit .cover .gameWrap .key li {text-align: center; margin:0 4px 0; width: 50px; height: 50px; line-height: 46px; background: #111111; border-radius: 5px;}
 .rabbit .cover .gameWrap .key li.now {border:2px solid #ffff00; position: relative; top:-20px;}
-.rabbit .cover .gameWrap .res{color:#5665F8;}
+.rabbit .cover .gameWrap .res {color:#5665F8;}
+.rabbit .cover .gameWrap .end {color:#5665F8; font-weight:bold; font-size: 50px;}
+.rabbit .cover .gameWrap .end .re {margin:50px 0 0; padding:10px; background: #5666f836; font-size: 30px; text-align: center; border-radius: 5px; cursor: pointer;}
 
 .rabbit .cover .foot {line-height:1.5; font-size: 80px; color:#ff52d2; text-align: center; font-family: 'Rammetto One', cursive;}
 .rabbit .cover .foot .num {color:#ffff00;}
+
+#progress {
+    margin: 50px auto;
+    width: 60%;
+    height: 40px;
+    border: 2px solid #ffff00;
+    position: relative;
+    background-color: #ddd;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  #bar {
+    background-color: #5665F8;
+    height: 36px;
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
