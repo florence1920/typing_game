@@ -18,14 +18,13 @@ startBtn.addEventListener('click', function(){
 //stage
 let stage = 1;
 
-//키보드 배열 생성
-const origin = ['q','w','e','a','s','d'];
-const key = document.querySelector('.key');
-let keySet = [];
 
 
 function stageStart(){
-    
+    //키보드 배열 생성
+    const origin = ['q','w','e','a','s','d'];
+    const key = document.querySelector('.key');
+    let keySet = [];
     //배열 화면에 나오게
     for (let i = 0; i < 6; i++){
         let li = document.createElement("li");
@@ -34,40 +33,83 @@ function stageStart(){
         li.append(origin[random]);
         key.append(li)
     }
-    
+    console.log(keySet)
+    let step = 1;
+    console.log(`000${step}`)
+    // 키 확인
+    function checkKey (){
+        countStart();
+        let keyCount = 0;
+        window.addEventListener("keyup", (e) => {
+            console.log(e.key)
+            console.log(`keyCount : ${keyCount}`)
+            console.log(`keySet: ${keySet}`)
+            console.log(keySet[keyCount])
+            console.log(`step: ${step}`)
+            
+            if(e.key === keySet[keyCount]){
+                getClass(step);
+                step = step + 1;
+                if(step === 7 && timeSafe){
+                    console.log('지금!!')
+                    document.querySelector('.clear').innerHTML='Clear'
+                    stage = stage+1;
+                    if(stage <=2){
+                        key.replaceChildren();
+                        stageStart();
+                    }
+                }
+            }else{
+                fail();
+            }
+            //시간초과
+            if(timeSafe === false){
+                fail();
+            }
+           
+            keyCount = keyCount + 1;
+
+            
+            
+            console.log('-------------')
+        });
+        
+    }
+    const progressBar = document.getElementById("bar");
+    let timeSafe = true;
+
+    //카운터 시작
+    function countStart(){
+        //시간 진행되게
+        let barWidth = 0;
+
+        const animate = () => {
+            barWidth = barWidth + 2.5;
+            progressBar.style.width = `${barWidth}%`;
+        };
+
+        // animation starts 2 seconds after page load
+        setTimeout(() => {
+            let intervalID = setInterval(() => {
+            if(step === 7){
+                clearInterval(intervalID);
+            }
+            if (barWidth >= 100) {
+                timeSafe = false;
+                clearInterval(intervalID);
+                if(step !== 7){
+                    fail();
+                }
+            } else {
+                animate();
+            }
+            }, 100); //this sets the speed of the animation
+        }, );
+        //진행바 넘어가게
+
+    }
     checkKey();
 }
-
-// 키 확인
-function checkKey (){
-    countStart();
-    let keyCount = 0;
-    let step = 1;
-    window.addEventListener("keydown", (e) => {
-        console.log(e.key)
-        console.log(keySet[keyCount])
-        if(e.key === keySet[keyCount]){
-            getClass(step);
-            console.log(`step: ${step}`)
-            step = step + 1;
-        }else{
-            fail();
-        }
-        //시간초과
-        if(timeSafe === false){
-            fail();
-        }
-        keyCount = keyCount + 1;
-        if(step === 7 && timeSafe){
-
-            document.querySelector('.clear').innerHTML='Clear'
-        }
-        console.log(timeSafe)
-    });
-}
-
-
-
 
 //클래스 주는 함수 
 function getClass(num){
@@ -85,50 +127,8 @@ function fail(){
     end.style.display = 'block';
 }
 
-//성공 시 
-function success(){
-    console.log('다음')
+console.log(`stage : ${stage}`)
+
+if(stage === 2) {
+    stageStart();
 }
-
-
-const progressBar = document.getElementById("bar");
-let timeSafe = true;
-
-//카운터 시작
-function countStart(){
-    //시간 진행되게
-    let barWidth = 0;
-
-    const animate = () => {
-        barWidth = barWidth + 2.5;
-        console.log(barWidth);
-        progressBar.style.width = `${barWidth}%`;
-    };
-
-    // animation starts 2 seconds after page load
-    setTimeout(() => {
-        let intervalID = setInterval(() => {
-        if (barWidth >= 100) {
-            timeSafe = false;
-            clearInterval(intervalID);
-        } else {
-            animate();
-        }
-        }, 100); //this sets the speed of the animation
-    }, );
-    //진행바 넘어가게
-
-}
-
-
-// let progressBar = document.querySelector()
-// let interval = 10;
-// let countDown = setInterval(()=>{
-//     interval--;
-//     let progressWidth = (interval/10) * 100;
-//     if(interval > 0){
-
-//     } else {
-
-//     }
-// },1000);
