@@ -46,7 +46,7 @@ function checkKey() {
             progressBar.style.width = `${barWidth}%`;
         };
 
-        // animation starts 2 seconds after page load
+
         setTimeout(() => {
             let intervalID = setInterval(() => {
                 console.log(step);
@@ -63,7 +63,7 @@ function checkKey() {
                 } else {
                     animate();
                 }
-            }, 100); //this sets the speed of the animation
+            }, 100);
         },);
     }
 
@@ -121,7 +121,7 @@ function getClass(num) {
     need.className = 'now';
 }
 
-//실패 시!
+//완료
 function final(win) {
     start.style.display = 'none';
     end.style.display = 'block';
